@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, rgb(4, 99, 47) 0%, transparent 70%), linear-gradient(225deg, rgb(0, 84, 179) 0%, transparent 70%), linear-gradient(to bottom, #111, #222); 
+    background-attachment: fixed;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    
+}
+h1 {
+    animation: brilho 2.5s ease-in-out infinite;
+}
+
+@keyframes brilho {
+    0% {
+        color: #FFD700;
+        text-shadow: 0 0 5px #FFD700;
+    }
+    50% {
+        color: #1DB954;
+        text-shadow: 0 0 15px #1DB954;
+    }
+    100% {
+        color: #FFD700;
+        text-shadow: 0 0 5px #FFD700;
+    }
+}
+
+input, select {
+    width: 200px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 50px;
+    border: 2px solid rgb(255, 255, 255) ;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(#FFD700 ,#FF3B3B);
+    transition: transform 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+#resultado {
+    margin-top: 20px;
+    padding: 15px;
+    background: #099f2f;
+    color: #ffffff;
+    border-radius: 20px;
+}

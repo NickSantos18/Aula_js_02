@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerador de Heróis - My Hero Academia</title>
+    <link rel="stylesheet" href="https://fonts.google.com">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1 class="titulo">MY HERO ACADEMIA</h1>
+
+    <label>Nome:</label>
+    <input type="text" id="nome"><br><br>
+
+    <label>Classe:</label>
+    <select id="classe">
+        <option value="Estudante">Estudante da U.A.</option>
+        <option value="heroi">Herói Profissional</option>
+        <option>Civil</option>
+        <option value="vilao">Vilão</option>
+    </select><br><br>
+
+    <label>individualidade:</label>
+    <select id="quirk">
+    <option value="Sem individualidade">Sem individualidade</option>
+    <option value="Super Força">One for All</option>
+    <option value="Roubar individualidade">All For One</option>
+    <option value="Velocidade Extrema">Velocidade Extrema</option>
+    <option value="Manipulação de Fogo">Manipulação de Fogo</option>
+    <option value="Manipulação de Gelo">Manipulação de Gelo</option>
+    <option value="Eletricidade">Eletricidade</option>
+    <option value="Telecinese">Telecinese</option>
+    <option value="Regeneração">Regeneração</option>
+    <option value="Invisibilidade">Invisibilidade</option>
+    <option value="Controle da Gravidade">Controle da Gravidade</option>
+</select>
+<br>
+
+    <button onclick="gerarPersonagem()"><span>Gerar Personagem</span></button>
+
+    <h2 id="resultado"></h2>
+
+    <script src="script.js">
+    </script>
+
+</body>
+</html>

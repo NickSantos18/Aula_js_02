@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Intervalo entre Datas</title>
+
+  <!-- Estilos visuais da página -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input {
+      padding: 5px;
+      margin: 5px;
+    }
+
+    /* Estilo dos botões */
+    button {
+      margin-top: 15px;
+      padding: 8px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    /* Estilo do botão de limpar (cinza) */
+    .btn-limpar {
+      background-color: #888;
+    }
+
+    /* Área de resultado */
+    #resultado {
+      margin-top: 20px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      display: inline-block;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📅 Calculadora de Intervalo entre Datas</h1>
+
+  <!-- Área de entrada de datas -->
+  <label for="data1">Digite a primeira data:</label>
+  <input type="date" id="data1">
+
+  <label for="data2">Digite a segunda data:</label>
+  <input type="date" id="data2">
+
+  <!-- Botões de ação -->
+  <br><br>
+  <button onclick="calcularIntervalo()">Calcular Intervalo</button>
+  <button class="btn-limpar" onclick="limparCampos()">Limpar Campos</button>
+
+  <!-- Onde o resultado será exibido -->
+  <div id="resultado"></div>
+
+  <script>
+    /*
+      Função: calcularIntervalo()
+      Objetivo: Calcular a diferença entre duas datas
+      e mostrar o intervalo em dias, meses e anos.
+    */
+    function calcularIntervalo() {
+
+      // Captura os valores informados pelo usuário
+      const data1 = document.getElementById("data1").value;
+      const data2 = document.getElementById("data2").value;
+
+      // Verifica se os dois campos foram preenchidos
+      if (!data1 || !data2) {
+        document.getElementById("resultado").innerHTML =
+          "<strong style='color:red '>Por favor, preencha as duas datas antes de calcular!</strong>";
+        return;
+      }
+
+      // Converte as strings recebidas em objetos do tipo Date
+      const d1 = new Date(data1);
+      const d2 = new Date(data2);
+
+      // Calcula a diferença entre as datas em milissegundos
+      const diffEmMs = Math.abs(d2 - d1);
+
+      /*
+        EXPLICAÇÃO:
+        1 dia = 1000 milissegundos
+        1 segundo = 60 segundos
+        1 minuto = 60 minutos
+        1 hora = 24 horas
+        Logo, 1 dia = 1000 * 60 * 60 * 24 milissegundos
+      */
+      const diffEmDias = Math.floor(diffEmMs / (1000 * 60 * 60 * 24));
+
+      // Converte dias em meses e anos de forma aproximada
+      // OBS: Essa é apenas uma aproximação
+      const diffEmMeses = Math.floor(diffEmDias / 30);
+      const diffEmAnos = Math.floor(diffEmDias / 365);
+
+      // Exibe os resultados na tela dentro da div "resultado"
+      document.getElementById("resultado").innerHTML = `
+        <p><strong>Diferença em dias:</strong> ${diffEmDias} dias</p>
+        <p><strong>Diferença em meses (aproximado):</strong> ${diffEmMeses} meses</p>
+        <p><strong>Diferença em anos (aproximado):</strong> ${diffEmAnos} anos</p>
+      `;
+    }
+
+    /*
+      Função: limparCampos()
+      Objetivo: Limpar os campos de data e o resultado
+    */
+    function limparCampos() {
+      document.getElementById("data1").value = "";
+      document.getElementById("data2").value = "";
+
+      // Limpa o conteúdo da div de resultado
+      document.getElementById("resultado").innerHTML = "";
+
+      // Opcional: foco novamente no primeiro campo
+      document.getElementById("data1").focus();
+    }
+  </script>
+
+</body>
+</html>
